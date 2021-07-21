@@ -60,6 +60,7 @@ routes.push(new AuthRoutes(app));
 // this is a simple route to make sure everything is working properly
 const runningMessage = `Server running at http://localhost:${port}`;
 app.get('/', (req: express.Request, res: express.Response) => {
+    console.log("whi is failing??");
     res.status(200).send(runningMessage)
 });
 
