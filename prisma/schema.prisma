@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            Int         @id @default(autoincrement())
+  uuid          String      @default(uuid())
+  firstName     String      @map("first_name")
+  lastName      String      @map("last_name")
+  email         String      @unique
+  password      String
+  // one-one relation with UserSettings table
+  userSettings  UserSettings?
+  // one user can have many tasks
+  tasks         Task[]
+}
+
+model UserSettings {
+  id              Int         @id @default(autoincrement())
+  uuid            String      @default(uuid())
+  dayStartTime    DateTime    @map("day_start_time")
+  dayEndTime      DateTime    @map("day_end_time")
+  hourActive      Int         @map("hour_active")
+  hourBreak       Int         @map("hour_break")
+  lunchStartTime  DateTime    @map("lunch_start_time")
+  lunchEndTime    DateTime    @map("lunch_end_time")
+  user            User        @relation(fields: [userId], references: [id])
+  userId          Int         @map("user_id")
+}
+
+model Task {
+  id              Int         @id @default(autoincrement())
+  uuid            String      @default(uuid())
+  title           String      
+  description     String      
+  startInterval   DateTime    @map("start_interval")
+  endInterval     DateTime    @map("end_interval")
+  // each task belongs to a user
+  user            User        @relation(fields: [userId], references: [id])
+  userId          Int         @map("user_id")
+}
