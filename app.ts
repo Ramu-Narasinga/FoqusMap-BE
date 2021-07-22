@@ -23,6 +23,8 @@ const port = process.env.PORT || 3000;
 const routes: Array<CommonRoutesConfig> = [];
 const debugLog: debug.IDebugger = debug('app');
 
+console.log("process.env.PORT:", process.env.PORT);
+
 app.use(helmet());
 
 // here we are adding middleware to parse all incoming requests as JSON 
