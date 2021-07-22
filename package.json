@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "start": "npm run tsc && node --unhandled-rejections=strict ./dist/app.js",
+    "postinstall": "npm run tsc",
+    "start": "node --unhandled-rejections=strict ./dist/app.js",
     "debug": "export DEBUG=* && npm run start",
     "test": "mocha -r ts-node/register 'test/**/*.test.ts' --unhandled-rejections=strict",
     "test-debug": "export DEBUG=* && npm test"
