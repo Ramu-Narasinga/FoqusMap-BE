@@ -1,7 +1,7 @@
 import debug from 'debug';
-import dotenv from 'dotenv';
+import dotenv, { DotenvConfigOptions } from 'dotenv';
 
-const dotenvResult = dotenv.config();
+const dotenvResult = dotenv.config({silent: true} as DotenvConfigOptions);
 if (dotenvResult.error) {
     throw dotenvResult.error;
 }
