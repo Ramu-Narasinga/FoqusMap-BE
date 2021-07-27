@@ -12,6 +12,8 @@ import {UsersRoutes} from './users/users.routes.config';
 import { AuthRoutes } from './auth/auth.routes.config';
 import helmet from 'helmet';
 
+console.log("process.env", process.env);
+
 if (process.env.NODE_ENV != "production") {
     const dotenvResult = dotenv.config();
     if (dotenvResult.error) {
