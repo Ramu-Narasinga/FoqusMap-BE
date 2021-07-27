@@ -11,7 +11,7 @@
     "test": "mocha -r ts-node/register 'test/**/*.test.ts' --unhandled-rejections=strict",
     "test-debug": "export DEBUG=* && npm test",
     "debug": "export DEBUG=* && npm run start",
-    "start": "node --unhandled-rejections=strict ./dist/app.js",
+    "start": "node --unhandled-rejections=strict ./dist/app.js"
   },
   "keywords": [],
   "author": "",
