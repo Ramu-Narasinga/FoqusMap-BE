@@ -23,12 +23,12 @@ jobs:
 
     steps:
     - name: create env file
-    run: |
-      touch .env
-      echo JWT_SECRET =${{ secrets.JWT_SECRET }} >> .env
-      echo NODE_ENV =${{ secrets.NODE_ENV }} >> .env
-      echo DEBUG =${{ secrets.DEBUG }} >> .env
-      echo DATABASE_URL =${{ secrets.DATABASE_URL }} >> .env
+      run: |
+        touch .env
+        echo JWT_SECRET =${{ secrets.JWT_SECRET }} >> .env
+        echo NODE_ENV =${{ secrets.NODE_ENV }} >> .env
+        echo DEBUG =${{ secrets.DEBUG }} >> .env
+        echo DATABASE_URL =${{ secrets.DATABASE_URL }} >> .env
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
